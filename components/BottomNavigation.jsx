@@ -95,15 +95,15 @@ export default function BottomNavigation() {
   }, [])
 
   return (
-    <div className="fixed bottom-0 inset-x-0 bg-rose-500 text-white grid grid-cols-4 text-center">
+    <div className="fixed bottom-0 inset-x-0 bg-gradient-to-r from-cartoon-orange-500 to-cartoon-orange-400 text-white grid grid-cols-4 text-center rounded-t-3xl shadow-cartoon-lg border-t-4 border-cartoon-orange-600">
       {navs.map(({ name, icon, url }, i) => (
         <Link
           href={url}
           key={i}
-          className={url === active ? 'pt-2 pb-1 bg-rose-600' : 'pt-2 pb-1'}
+          className={`pt-2 pb-1 transition-all duration-300 hover:scale-110 ${url === active ? 'bg-cartoon-orange-600 rounded-t-2xl border-t-4 border-white' : 'hover:bg-cartoon-orange-500/50'}`}
         >
           {icon}
-          <span className="text-sm">{name}</span>
+          <span className="text-xs md:text-sm font-bold">{name}</span>
         </Link>
       ))}
     </div>

@@ -93,12 +93,12 @@ export default function Tracker({ callback }) {
     <>
       <button
         ref={autoTrackButton}
-        className="px-3 py-2 mt-3 rounded-lg bg-rose-500 text-rose-50"
+        className="cartoon-btn mt-3"
       >
-        Lacak otomatis
+        📍 Lacak Otomatis
       </button>
 
-      <div className="overflow-hidden my-3 rounded-lg">
+      <div className="overflow-hidden my-4 rounded-2xl cartoon-card">
         <div className="h-96" ref={googleMap} />
       </div>
     </>

@@ -64,31 +64,31 @@ export default function VerseCard({ verse, options }) {
       className={options?.offsetOn && 'mb-4 -mt-16 pt-16'}
     >
       <div onDoubleClick={() => setDisplayMenu(!displayMenu)} className="flex">
-        <div className="verse-number font-bold text-rose-500 mr-3">
-          <div className="sticky top-14 bg-rose-200 px-3 py-1.5 rounded-full">
+        <div className="verse-number font-bold text-cartoon-orange-600 mr-3">
+          <div className="sticky top-14 bg-cartoon-orange-200 px-3 py-1.5 rounded-full border-2 border-cartoon-orange-500 sticky top-14">
             {number.inSurah}
           </div>
         </div>
         <div className="w-full">
           {/* Arab */}
-          <p className="text-right font-serif text-2xl">
+          <p className="text-right font-serif text-2xl text-gray-800">
             <span className="font-mushaf leading-loose">{text.arab}</span>
           </p>
 
           {/* Latin */}
           {displayLatin && (
-            <em className="text-rose-700/50 block mt-3">
+            <em className="text-cartoon-orange-400/70 block mt-3 italic">
               {text.transliteration.en}
             </em>
           )}
 
           {/* Translate */}
-          {displayTranslate && <p className="block mt-2">{translation.id}</p>}
+          {displayTranslate && <p className="block mt-2 text-gray-700">{translation.id}</p>}
 
-          <div className="mt-3 flex flex-wrap items-center">
+          <div className="mt-4 flex flex-wrap items-center">
             {/* Audio */}
             {displayAudio && (
-              <div className="overflow-hidden flex justify-center items-center h-5 mr-3 w-full">
+              <div className="overflow-hidden flex justify-center items-center h-8 mr-3 w-full rounded-xl border-2 border-cartoon-orange-300 bg-cartoon-orange-50">
                 <audio
                   className="w-full"
                   src={audio.primary}
@@ -113,22 +113,22 @@ export default function VerseCard({ verse, options }) {
           displayMenu ? 'h-[1.5rem]' : 'h-0'
         }`}
       >
-        <div className="flex gap-4 px-3 justify-between">
+        <div className="flex gap-4 px-3 justify-between text-cartoon-orange-500 font-semibold">
           {/* Copy link button */}
           <div
             title="Salin link ayat"
-            className="flex items-center gap-2 cursor-pointer hover:text-rose-500 duration-300"
+            className="flex items-center gap-2 cursor-pointer hover:text-cartoon-orange-600 hover:scale-110 duration-300 transition-all"
             onClick={() => copyVerseLink(verseLink)}
           >
             {!copied ? <ClipboardIcon /> : <ClipboardCheckFill />}
-            <span>{!copied ? 'Salin link' : 'Tersalin!'}</span>
+            <span>{!copied ? 'Salin link' : '✓ Tersalin!'}</span>
           </div>
 
           {/* Last read button */}
           {options?.showLastReadButton && (
             <div
               title="Tandai terakhir dibaca"
-              className="flex items-center gap-2 cursor-pointer hover:text-rose-500 duration-300"
+              className="flex items-center gap-2 cursor-pointer hover:text-cartoon-orange-600 hover:scale-110 duration-300 transition-all"
               onClick={() => setLastRead({ ...verse, link: verseLink })}
             >
               {lastRead?.number.inQuran !== number.inQuran ? (
@@ -138,8 +138,8 @@ export default function VerseCard({ verse, options }) {
               )}
               <span>
                 {lastRead?.number.inQuran !== number.inQuran
-                  ? 'Terakhir dibaca'
-                  : 'Ditandai terakhir'}
+                  ? 'Tandai dibaca'
+                  : '📌 Ditandai'}
               </span>
             </div>
           )}

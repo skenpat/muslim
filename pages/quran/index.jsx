@@ -15,7 +15,7 @@ export default function Quran() {
 
   return (
     <Layout name="Qur'an">
-      <h1 className="text-3xl font-bold text-rose-500 mb-3">Qur'an</h1>
+      <h1 className="text-4xl font-bold text-cartoon-orange-500 mb-4" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.1)' }}>📖 Qur'an</h1>
 
       <LastReadCard />
 

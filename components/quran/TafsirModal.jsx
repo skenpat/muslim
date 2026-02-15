@@ -14,26 +14,21 @@ export default function TafsirModal({ surah, display }) {
     <>
       {/* Tafsir */}
       <div
-        className={`fixed inset-0 z-10 flex justify-center p-4 bg-slate-700/20 backdrop-blur duration-300 overflow-y-auto ${
+        className={`fixed inset-0 z-10 flex justify-center p-4 bg-slate-900/40 backdrop-blur-sm duration-300 overflow-y-auto ${
           displayTafsir ? 'visible opacity-100' : 'invisible opacity-0'
         }`}
       >
-        <div>
+        <div className="w-full md:w-2/3 lg:w-1/2 my-auto">
           {/* Head */}
-          <div className="p-3 rounded-t-lg bg-rose-500 text-rose-50 relative">
-            <div className="absolute top-0 right-0 p-2">
+          <div className="p-4 rounded-t-2xl bg-gradient-to-r from-cartoon-orange-500 to-cartoon-orange-400 text-white relative shadow-cartoon-lg">
+            <div className="absolute top-3 right-3 p-2 hover:bg-white/20 rounded-full cursor-pointer transition-all" onClick={() => setDisplayTafsir(false)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 cursor-pointer hover:fill-rose-50 hover:stroke-rose-500"
-                fill="none"
+                className="h-6 w-6"
+                fill="currentColor"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth="2"
-                onClick={() => setDisplayTafsir(false)}
               >
                 <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
                   d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
@@ -41,17 +36,17 @@ export default function TafsirModal({ surah, display }) {
 
             <div className="flex justify-between items-center">
               <div className="flex items-center">
-                <div className="px-3 py-2.5">
-                  <h2 className="text-xl font-bold">
+                <div className="px-3 py-2">
+                  <h2 className="text-xl font-bold" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.2)' }}>
                     {name.transliteration.id}
                   </h2>
-                  <h2 className="font-semibold">{name.translation.id}</h2>
+                  <h2 className="font-semibold text-sm">{name.translation.id}</h2>
                 </div>
               </div>
 
               <div className="text-right flex items-center">
-                <div className="px-3 pt-4">
-                  <h1 className="text-2xl font-bold font-serif">
+                <div className="px-3 pt-2">
+                  <h1 className="text-2xl font-bold font-serif" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.2)' }}>
                     <span className="font-mushaf">{name.short}</span>
                   </h1>
                 </div>
@@ -60,14 +55,14 @@ export default function TafsirModal({ surah, display }) {
           </div>
 
           {/* Body */}
-          <div className="p-3 rounded-b-lg bg-white">
-            <p className="mb-3">
+          <div className="p-4 rounded-b-2xl bg-white shadow-cartoon-lg">
+            <p className="mb-4">
               <strong>
                 Surah ke-{number}, terdiri dari {numberOfVerses} ayat dan
                 termasuk surah {revelation.id}.
               </strong>
             </p>
-            <p>{tafsir.id}</p>
+            <p className="text-gray-700 leading-relaxed">{tafsir.id}</p>
           </div>
         </div>
       </div>

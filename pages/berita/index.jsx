@@ -26,9 +26,9 @@ export default function Berita() {
 
   return (
     <Layout name="Berita">
-      <h1 className="text-3xl font-bold text-rose-500 mb-3">Berita Islamic</h1>
+      <h1 className="text-4xl font-bold text-cartoon-orange-500 mb-4" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.1)' }}>📰 Berita Islamic</h1>
 
-      <p>Berikut ini adalah kumpulan berita-berita islamic.</p>
+      <p className="text-gray-700 font-semibold">Berikut ini adalah kumpulan berita-berita Islamic terkini dari berbagai sumber terpercaya.</p>
 
       {loading && <Loading message="Memuat berita..." />}
       {error && (

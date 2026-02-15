@@ -55,16 +55,16 @@ export default function Kalender() {
 
   return (
     <Layout name="Kalender">
-      <h1 className="text-3xl font-bold text-rose-500 mb-3">Kalender</h1>
+      <h1 className="text-4xl font-bold text-cartoon-orange-500 mb-4" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.1)' }}>📅 Kalender</h1>
 
-      <div className="text-center mb-3">
-        <p>
-          Sekarang tanggal <strong>{indonesianDate()}</strong>
+      <div className="text-center mb-4 bg-gradient-to-r from-cartoon-orange-50 to-cartoon-orange-100 p-4 rounded-2xl border-3 border-cartoon-orange-200">
+        <p className="text-lg">
+          Sekarang tanggal <strong className="text-cartoon-orange-600">{indonesianDate()}</strong>
         </p>
-        <p>
+        <p className="text-gray-700 mt-2">
           Berikut ini kalender sholat khusus bulan{' '}
-          <strong>{d.getMonth() + 1}</strong> tahun{' '}
-          <strong>{d.getFullYear()}</strong>
+          <strong className="text-cartoon-orange-600">{d.getMonth() + 1}</strong> tahun{' '}
+          <strong className="text-cartoon-orange-600">{d.getFullYear()}</strong>
         </p>
       </div>
 
@@ -74,13 +74,13 @@ export default function Kalender() {
       )}
 
       {calendar && (
-        <div className="overflow-x-auto mx-auto max-w-max">
-          <table className="table-fixed">
+        <div className="overflow-x-auto mx-auto max-w-full">
+          <table className="table-fixed border-3 border-cartoon-orange-300 rounded-2xl overflow-hidden">
             <thead>
-              <tr className="divide-x text-rose-500">
-                <th className="p-3">Tanggal</th>
+              <tr className="divide-x-2 divide-cartoon-orange-300 text-white bg-gradient-to-r from-cartoon-orange-500 to-cartoon-orange-400" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.2)' }}>
+                <th className="p-3 font-bold">Tanggal</th>
                 {Object.keys(calendar[0].timings).map((name) => (
-                  <th className="p-3">{name}</th>
+                  <th className="p-3 font-bold">{name}</th>
                 ))}
               </tr>
             </thead>
@@ -88,10 +88,10 @@ export default function Kalender() {
               {calendar.map(({ timings, date }, i) => (
                 <tr
                   key={i}
-                  className={`font-semibold whitespace-nowrap ${
+                  className={`font-semibold whitespace-nowrap divide-x-2 divide-cartoon-orange-200 border-b-2 border-cartoon-orange-200 ${
                     date.gregorian.day === String(d.getDate()).padStart(2, '0')
-                      ? 'bg-rose-400 text-white'
-                      : 'odd:bg-rose-100'
+                      ? 'bg-cartoon-orange-400 text-white'
+                      : 'odd:bg-cartoon-orange-50 hover:bg-cartoon-orange-100 transition-colors'
                   }`}
                 >
                   <td className="p-3">

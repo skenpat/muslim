@@ -67,7 +67,7 @@ export default function Surah({ data }) {
             <h1 className="text-2xl font-bold font-serif mb-3">
               <span className="font-mushaf">{surah.name.short}</span>
             </h1>
-            <h2 className="text-xl font-bold text-rose-500">
+            <h2 className="text-xl font-bold text-cartoon-orange-600" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.1)' }}>
               {surah.name.transliteration.id}{' '}
             </h2>
             <h3 className="text-lg font-semibold">
@@ -75,19 +75,18 @@ export default function Surah({ data }) {
             </h3>
           </div>
 
-          {/* Options */}
-          <div className="flex flex-wrap justify-center py-4 bg-white text-sm sticky top-0 z-10">
+          <div className="flex flex-wrap justify-center py-4 bg-gradient-to-r from-cartoon-orange-50 to-white text-sm sticky top-0 z-10 border-b-2 border-cartoon-orange-200">
             {/* Tafsir button */}
             <div
-              className={`cursor-pointer duration-300 hover:text-rose-500 ${
-                displayTafsir ? 'text-rose-500' : 'text-slate-500 '
+              className={`cursor-pointer duration-300 px-3 py-2 rounded-lg font-semibold transition-all hover:scale-110 ${
+                displayTafsir ? 'text-white bg-cartoon-orange-500 shadow-md' : 'text-cartoon-orange-400 hover:text-cartoon-orange-600'
               }`}
               onClick={() => setOption({ displayTafsir: !displayTafsir })}
               title="Klik untuk menampilkan tafsir surah ini."
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 mr-1 inline-block"
+                className="h-5 w-5 mr-1 inline-block"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -104,15 +103,15 @@ export default function Surah({ data }) {
 
             {/* Translate button */}
             <div
-              className={`cursor-pointer duration-300 hover:text-rose-500 ${
-                displayTranslate ? 'text-rose-500' : 'text-slate-500 '
+              className={`cursor-pointer duration-300 px-3 py-2 rounded-lg font-semibold transition-all hover:scale-110 ${
+                displayTranslate ? 'text-white bg-cartoon-orange-500 shadow-md' : 'text-cartoon-orange-400 hover:text-cartoon-orange-600'
               }`}
               onClick={() => setOption({ displayTranslate: !displayTranslate })}
               title="Klik untuk menampilkan terjemahan masing-masing ayat."
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 ml-2 inline-block"
+                className="h-5 w-5 ml-1 inline-block"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -129,15 +128,15 @@ export default function Surah({ data }) {
 
             {/* Audio button */}
             <div
-              className={`cursor-pointer duration-300 hover:text-rose-500 ${
-                displayAudio ? 'text-rose-500' : 'text-slate-500 '
+              className={`cursor-pointer duration-300 px-3 py-2 rounded-lg font-semibold transition-all hover:scale-110 ${
+                displayAudio ? 'text-white bg-cartoon-orange-500 shadow-md' : 'text-cartoon-orange-400 hover:text-cartoon-orange-600'
               }`}
               onClick={() => setOption({ displayAudio: !displayAudio })}
               title="Klik untuk menampilkan audio masing-masing ayat."
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 ml-2 inline-block"
+                className="h-5 w-5 ml-1 inline-block"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -154,15 +153,15 @@ export default function Surah({ data }) {
 
             {/* Latin button */}
             <div
-              className={`cursor-pointer duration-300 hover:text-rose-500 ${
-                displayLatin ? 'text-rose-500' : 'text-slate-500 '
+              className={`cursor-pointer duration-300 px-3 py-2 rounded-lg font-semibold transition-all hover:scale-110 ${
+                displayLatin ? 'text-white bg-cartoon-orange-500 shadow-md' : 'text-cartoon-orange-400 hover:text-cartoon-orange-600'
               }`}
               onClick={() => setOption({ displayLatin: !displayLatin })}
               title="Klik untuk menampilkan bacaan latin masing-masing ayat."
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 ml-2 inline-block"
+                className="h-5 w-5 ml-1 inline-block"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -179,9 +178,9 @@ export default function Surah({ data }) {
           </div>
 
           {/* Navigation */}
-          <div className="flex flex-wrap justify-between mb-5">
+          <div className="flex flex-wrap justify-between mb-5 mt-4">
             {/* Previous */}
-            <div className="flex items-center hover:text-rose-500 duration-300">
+            <div className="flex items-center text-cartoon-orange-500 font-semibold hover:text-cartoon-orange-600 duration-300 hover:scale-110 transition-all">
               {surah.number > 1 && (
                 <button
                   title="Kembali ke surah sebelumnya."
@@ -199,18 +198,18 @@ export default function Surah({ data }) {
                       clipRule="evenodd"
                     />
                   </svg>{' '}
-                  Sebelumnya
+                  ← Sebelumnya
                 </button>
               )}
             </div>
 
             {/* Next */}
-            <div className="flex items-center text-right hover:text-rose-500 duration-300">
+            <div className="flex items-center text-right text-cartoon-orange-500 font-semibold hover:text-cartoon-orange-600 duration-300 hover:scale-110 transition-all">
               <button
                 title="Beralih ke surah selanjutnya."
                 onClick={() => changeSurah(surah.number + 1)}
               >
-                Selanjutnya{' '}
+                Selanjutnya →{' '}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 inline-block ml-1"
@@ -249,9 +248,9 @@ export default function Surah({ data }) {
           ))}
 
           {/* Navigation */}
-          <div className="flex justify-between mt-3">
+          <div className="flex justify-between mt-6">
             {/* Previous */}
-            <div className="flex items-center hover:text-rose-500 duration-300">
+            <div className="flex items-center text-cartoon-orange-500 font-semibold hover:text-cartoon-orange-600 duration-300 hover:scale-110 transition-all">
               {surah.number > 1 && (
                 <button
                   title="Kembali ke surah sebelumnya."
@@ -269,18 +268,18 @@ export default function Surah({ data }) {
                       clipRule="evenodd"
                     />
                   </svg>{' '}
-                  Sebelumnya
+                  ← Sebelumnya
                 </button>
               )}
             </div>
 
             {/* Next */}
-            <div className="flex items-center text-right hover:text-rose-500 duration-300">
+            <div className="flex items-center text-right text-cartoon-orange-500 font-semibold hover:text-cartoon-orange-600 duration-300 hover:scale-110 transition-all">
               <button
                 title="Beralih ke surah selanjutnya."
                 onClick={() => changeSurah(surah.number + 1)}
               >
-                Selanjutnya{' '}
+                Selanjutnya →{' '}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-5 w-5 inline-block ml-1"
@@ -304,26 +303,21 @@ export default function Surah({ data }) {
 
           {/* Tafsir */}
           <div
-            className={`fixed inset-0 z-10 flex justify-center p-4 bg-slate-700/20 backdrop-blur duration-300 overflow-y-auto ${
+            className={`fixed inset-0 z-10 flex justify-center p-4 bg-slate-900/40 backdrop-blur-sm duration-300 overflow-y-auto ${
               displayTafsir ? 'visible opacity-100' : 'invisible opacity-0'
             }`}
           >
-            <div>
+            <div className="w-full md:w-2/3 lg:w-1/2 my-auto">
               {/* Head */}
-              <div className="p-3 rounded-t-lg bg-rose-500 text-rose-50 relative">
-                <div className="absolute top-0 right-0 p-2">
+              <div className="p-4 rounded-t-2xl bg-gradient-to-r from-cartoon-orange-500 to-cartoon-orange-400 text-white relative shadow-cartoon-lg">
+                <div className="absolute top-3 right-3 p-2 hover:bg-white/20 rounded-full cursor-pointer transition-all" onClick={() => setOption({ displayTafsir: false })}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 cursor-pointer hover:fill-rose-50 hover:stroke-rose-500"
-                    fill="none"
+                    className="h-6 w-6"
+                    fill="currentColor"
                     viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    onClick={() => setOption({ displayTafsir: false })}
                   >
                     <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
                       d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
@@ -331,19 +325,19 @@ export default function Surah({ data }) {
 
                 <div className="flex justify-between items-center">
                   <div className="flex items-center">
-                    <div className="px-3 py-2.5">
-                      <h2 className="text-xl font-bold">
+                    <div className="px-3 py-2">
+                      <h2 className="text-xl font-bold" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.2)' }}>
                         {surah.name.transliteration.id}
                       </h2>
-                      <h2 className="font-semibold">
+                      <h2 className="font-semibold text-sm">
                         {surah.name.translation.id}
                       </h2>
                     </div>
                   </div>
 
                   <div className="text-right flex items-center">
-                    <div className="px-3 pt-4">
-                      <h1 className="text-2xl font-bold font-serif">
+                    <div className="px-3 pt-2">
+                      <h1 className="text-2xl font-bold font-serif" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.2)' }}>
                         <span className="font-mushaf">{surah.name.short}</span>
                       </h1>
                     </div>
@@ -352,15 +346,15 @@ export default function Surah({ data }) {
               </div>
 
               {/* Body */}
-              <div className="p-3 rounded-b-lg bg-white">
-                <p className="mb-3">
+              <div className="p-4 rounded-b-2xl bg-white shadow-cartoon-lg">
+                <p className="mb-4">
                   <strong>
                     Qur'an surah ke-{surah.number}, terdiri dari{' '}
                     {surah.numberOfVerses} ayat dan termasuk surah{' '}
                     {surah.revelation.id}.
                   </strong>
                 </p>
-                <p>{surah.tafsir.id}</p>
+                <p className="text-gray-700 leading-relaxed">{surah.tafsir.id}</p>
               </div>
             </div>
           </div>

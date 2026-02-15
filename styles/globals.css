@@ -4,10 +4,15 @@
 
 html {
   scroll-behavior: smooth;
+  background: linear-gradient(135deg, #fff8f0 0%, #ffe6d5 100%);
+}
+
+body {
+  background: linear-gradient(135deg, #fff8f0 0%, #ffe6d5 100%);
 }
 
 strong {
-  @apply text-rose-400;
+  @apply text-cartoon-orange-500 font-bold;
 }
 
 @font-face {
@@ -19,52 +24,69 @@ strong {
   font-family: Mushaf;
 }
 
+/* Cartoon card style */
+.cartoon-card {
+  @apply rounded-2xl shadow-cartoon transition-all duration-300 hover:scale-105 hover:shadow-cartoon-lg;
+  border: 3px solid #ff7700;
+  background: white;
+}
+
+.cartoon-card-active {
+  @apply border-4 border-cartoon-orange-500;
+  box-shadow: 0 0 0 4px rgba(255, 119, 0, 0.2), 0 10px 0 rgba(255, 119, 0, 0.3), 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Cartoon button style */
+.cartoon-btn {
+  @apply px-6 py-3 rounded-2xl font-bold text-white bg-cartoon-orange-500 transition-all duration-200;
+  border: 3px solid #dd6600;
+  box-shadow: 0 6px 0 #dd6600;
+  cursor: pointer;
+}
+
+.cartoon-btn:active {
+  transform: translateY(6px);
+  box-shadow: 0 0px 0 #dd6600;
+}
+
+.cartoon-btn:hover {
+  background: #ff8822;
+  box-shadow: 0 8px 0 #dd6600;
+}
+
 :target {
   animation: highlightVerse 5s;
 }
 
 @keyframes highlightVerse {
   0% {
-    @apply text-rose-500;
+    @apply text-cartoon-orange-500;
+    text-shadow: 0 0 10px rgba(255, 119, 0, 0.4);
   }
   90% {
-    @apply text-rose-500;
+    @apply text-cartoon-orange-500;
+    text-shadow: 0 0 10px rgba(255, 119, 0, 0.4);
   }
   100% {
     @apply text-current;
+    text-shadow: none;
   }
 }
 
 .verse-number {
-  filter: drop-shadow(0px 0px 1px rgb(251 113 133));
+  filter: drop-shadow(0px 2px 4px rgba(255, 119, 0, 0.3));
 }
 .verse-number > * {
-  @apply py-2 text-center w-10 bg-rose-200;
+  @apply py-2 text-center w-10 bg-cartoon-orange-200 text-cartoon-orange-700 font-bold rounded-full;
   white-space: nowrap;
-  clip-path: polygon(
-    50% 0,
-    65% 15%,
-    85% 15%,
-    85% 35%,
-    100% 50%,
-    85% 65%,
-    85% 85%,
-    65% 85%,
-    50% 100%,
-    35% 85%,
-    15% 85%,
-    15% 65%,
-    0 50%,
-    15% 35%,
-    15% 15%,
-    35% 15%
-  );
+  border: 3px solid #ff9933;
+  box-shadow: 0 4px 0 rgba(255, 119, 0, 0.3);
 }
 
 audio::-webkit-media-controls-panel {
-  @apply bg-rose-50;
+  @apply bg-cartoon-orange-100;
 }
 audio::-webkit-media-controls-current-time-display,
 audio::-webkit-media-controls-time-remaining-display {
-  @apply text-rose-500;
+  @apply text-cartoon-orange-500 font-bold;
 }

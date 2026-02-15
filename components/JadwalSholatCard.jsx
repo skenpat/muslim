@@ -1,21 +1,21 @@
 export default function JadwalSholatCard({ sholat }) {
   const { name, time, active } = sholat
 
-  const border = active ? 'border border-rose-500' : ''
+  const border = active ? 'cartoon-card-active' : 'cartoon-card'
 
   return (
     <div
-      className={`rounded-lg shadow bg-rose-50 ${border} text-rose-500 flex justify-between items-center p-4`}
+      className={`${border} text-cartoon-orange-600 flex justify-between items-center p-4 animate-pop`}
     >
-      <div className="text-lg">{name}</div>
-      <div className="font-bold flex items-center">
+      <div className="text-lg font-bold">{name}</div>
+      <div className="font-bold flex items-center text-2xl">
         {time}{' '}
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
+          width="24"
+          height="24"
           fill="currentColor"
-          className="ml-3"
+          className="ml-3 animate-spin slow"
           viewBox="0 0 16 16"
         >
           <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z" />
