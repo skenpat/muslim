@@ -1,6 +1,6 @@
 {
   "name": "skenmus",
-  "description": "Aplikasi web yang berisi qur'an online, informasi jadwal sholat, kalender, berita islam dan lainnya.",
+  "description": "Aplikasi web yang berisi qur'an online, informasi jadwal sholat, kalender, pemetaan kiblat, dan lainnya.",
   "version": "1.0.0",
   "repository": "git@github.com:skenpat/mmuslim.git",
   "author": "Feri Irawan <feriirawan.akun@gmail.com>",

@@ -1,9 +1,9 @@
 import Layout from '../../components/Layouts'
 
-export default function Berita() {
+export default function Kiblat() {
   // The page now embeds Google Qibla Finder via iframe
   return (
-    <Layout name="Berita">
+    <Layout name="Kiblat">
       <h1 className="text-4xl font-bold text-cartoon-orange-500 mb-4" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.1)' }}>
         🌐 Qibla Finder
       </h1>
