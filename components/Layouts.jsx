@@ -11,9 +11,11 @@ export default function Layout({ children, name }) {
   const themeClass = theme ? `theme-${theme}` : ''
 
   return (
-    <div className={`w-full mx-auto ${themeClass}`}>
+    <div className={`w-full max-w-4xl mx-auto px-4 ${themeClass}`}>
       <Head>
         <title>{title}</title>
+        <meta name="description" content="Aplikasi Muslim sederhana berisi jadwal sholat, quran, kiblat, dan kalender hijriyah." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <link
           rel="preload"
@@ -23,7 +25,7 @@ export default function Layout({ children, name }) {
           crossOrigin=""
         />
       </Head>
-      <main className="text-slate-600">
+      <main className="text-slate-600 min-h-screen">
         <Header />
         <Content>{children}</Content>
         <Footer />

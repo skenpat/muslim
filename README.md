@@ -1,7 +1,29 @@
 # Islamiah
 
-Aplikasi web yang berisi Qur'an, informasi jadwal sholat, kalender sholat, dan pemetaan kiblat interaktif.
+Aplikasi web islami lengkap yang menyediakan:
 
-Dibuat dengan ❤ dan NextJs oleh [Feri Irawan](https://github.com/feri-irawan) pada 16/02/2022.
+- 📖 Bacaan Al-Qur'an dengan kontrol ukuran huruf, tema, dan tajwid
+- 🕋 Penanda arah kiblat (melalui redirect ke Google Qibla Finder)
+- 🕌 Jadwal sholat lokal dengan pengaturan lokasi & hitung mundur
+- 📅 Kalender hijriyah
+- ⭐ Sistem bookmark ayat, statistik, dan favorit
+- 🔍 Pencarian surah dan ayat
+- 🌗 Tema terang/gelap/sepiya serta mode responsif mobile
 
-URL: <https://islamiah.vercel.app>
+Dibangun dengan ❤ menggunakan Next.js, Tailwind CSS, dan Zustan.
+
+> Projek awal oleh [Feri Irawan](https://github.com/feri-irawan) pada 16/02/2022, dikembangkan lebih lanjut.
+
+URL demo: <https://islamiah.vercel.app>
+
+## Menjalankan secara lokal
+
+```bash
+npm install
+npm run dev
+```
+
+Aplikasi akan tersedia di `http://localhost:3000`.
+
+---
+

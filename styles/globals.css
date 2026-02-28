@@ -90,3 +90,83 @@ audio::-webkit-media-controls-current-time-display,
 audio::-webkit-media-controls-time-remaining-display {
   @apply text-cartoon-orange-500 font-bold;
 }
+
+/* Theme styles for Quran reading */
+/* Light theme (default) */
+.theme-light {
+  @apply bg-white text-gray-900;
+}
+
+/* Dark theme */
+.theme-dark {
+  @apply bg-gray-900 text-gray-100;
+}
+
+.theme-dark .verse-number > * {
+  @apply bg-gray-700 text-gray-100 border-gray-600;
+}
+
+/* Sepia theme */
+.theme-sepia {
+  @apply bg-amber-50 text-amber-900;
+}
+
+.theme-sepia .verse-number > * {
+  @apply bg-amber-200 text-amber-900 border-amber-400;
+}
+
+/* Tajweed highlighting colors */
+.tajweed-idhar {
+  @apply text-green-600 bg-green-100;
+}
+
+.tajweed-iqlab {
+  @apply text-blue-600 bg-blue-100;
+}
+
+.tajweed-ikhfaa {
+  @apply text-purple-600 bg-purple-100;
+}
+
+.tajweed-qalqalah {
+  @apply text-red-600 bg-red-100;
+}
+
+.tajweed-meem-saakinah {
+  @apply text-yellow-600 bg-yellow-100;
+}
+
+.tajweed-noon-saakinah {
+  @apply text-indigo-600 bg-indigo-100;
+}
+
+.tajweed-madda {
+  @apply text-orange-600 bg-orange-100;
+}
+
+.tajweed-shaddah {
+  @apply text-pink-600 bg-pink-100;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  @apply transition-colors duration-300;
+}
+
+/* Line height utilities if not exist in tailwind */
+.leading-extra-loose {
+  line-height: 2.5;
+}
+
+/* Verse card styling */
+.verse-card {
+  @apply rounded-lg border-l-4 border-cartoon-orange-300 pl-4 py-3 mb-2 hover:bg-gray-50 transition-colors;
+}
+
+.dark .verse-card {
+  @apply hover:bg-gray-800 border-l-cartoon-orange-400;
+}
+
+.sepia .verse-card {
+  @apply hover:bg-amber-100 border-l-amber-400;
+}
