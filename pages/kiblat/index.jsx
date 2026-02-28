@@ -8,7 +8,13 @@ export default function Kiblat() {
         🌐 Qibla Finder
       </h1>
 
-      <div className="mt-4" style={{ position: 'relative', paddingTop: '56.25%' }}>
+      <div className="mt-4" style={{ 
+        position: 'relative', 
+        width: '100%',
+        maxWidth: '500px',
+        margin: '0 auto',
+        paddingTop: '177.78%'
+      }}>
         <iframe
           src="https://qiblafinder.withgoogle.com/intl/id/onboarding"
           title="Google Qibla Finder"
