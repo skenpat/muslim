@@ -16,7 +16,7 @@ export default function LastReadCard() {
     loaded &&
     lastRead && (
       <div className="cartoon-card mb-4">
-        <h1 className="text-lg font-bold text-center mb-4 text-cartoon-orange-600">📚 Terakhir dibaca</h1>
+        <h1 className="text-lg font-bold text-center mb-4 text-cartoon-orange-600 flex items-center justify-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M8 2h8a2 2 0 012 2v16l-6-3-6 3V4a2 2 0 012-2z"/></svg>Terakhir dibaca</h1>
 
         <VerseCard
           verse={lastRead}

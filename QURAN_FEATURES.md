@@ -11,7 +11,6 @@ Ini adalah catatan ringkas tentang perubahan besar pada modul Qur'an sesuai perm
 - Pencarian dalam surah (terjemahan/transliterasi)
 - Pencarian surah di halaman indeks
 - Statistik pembacaan (jumlah bookmark / surah dibaca)
-- Tajwid: toggle, legend, dan highlight sederhana
 - Last read card yang menampilkan ayat terakhir dibaca
 - Audio built-in dengan pengaturan satu-saat
 - Preferensi pengguna persist di localStorage melalui zustand
@@ -29,13 +28,12 @@ Ini adalah catatan ringkas tentang perubahan besar pada modul Qur'an sesuai perm
 ```
 contexts/ReadingPreferences.js
 components/quran/{FontSizeController,VerseCard,BookmarksPanel,SurahSearchBar,ReadingStats}.jsx
-utils/tajweed.js
+(utilities previously for tajwid were removed)
 ```
 
 ## Tips Penggunaan
 1. Gunakan tombol Sun/Moon/Book di header untuk tema
 2. Injek `FontSizeController` dan `SearchBar` untuk menyesuaikan bacaan
-3. Aktifkan Tajwid jika ingin penyorotan aturan bacaan
 4. Bookmark dan pencarian mempercepat navigasi ayat
 
 ---

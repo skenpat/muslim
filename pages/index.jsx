@@ -122,7 +122,7 @@ export default function JadwalSolatHariIni() {
 
   return (
     <Layout name="Jadwal Sholat">
-      <h1 className="text-4xl font-bold text-cartoon-orange-500 mb-3" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.1)' }}>🕌 Jadwal Sholat</h1>
+      <h1 className="text-4xl font-bold text-cartoon-orange-500 mb-3 flex items-center gap-2" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.1)' }}><svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 12v9m0-9l-3 3m3-3l3 3m4-2a2 2 0 00-2-2h-2V7a2 2 0 00-2-2H8a2 2 0 00-2 2v1H4a2 2 0 00-2 2v2a8 8 0 0016 0v-2z"/></svg>Jadwal Sholat</h1>
 
       {loading && <Loading message="Memuat jadwal sholat..." />}
       {error && (
@@ -134,7 +134,7 @@ export default function JadwalSolatHariIni() {
           displayMap ? 'visible' : 'invisible'
         }`}
       >
-        <h2 className="text-2xl font-bold text-cartoon-orange-600 mb-2">📍 Atur Lokasi</h2>
+        <h2 className="text-2xl font-bold text-cartoon-orange-600 mb-2 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M12 22s8-4.5 8-10a8 8 0 10-16 0c0 5.5 8 10 8 10z"/><circle cx="12" cy="12" r="3"/></svg>Atur Lokasi</h2>
         <p className="text-gray-700 mb-4">Silakan klik lokasi pada peta untuk mengganti lokasi Anda.</p>
 
         <Tracker callback={(coords) => setCoordinates(coords)} />
@@ -154,10 +154,13 @@ export default function JadwalSolatHariIni() {
               <p>Berikut jadwal sholat hari ini.</p>
               <button
                 onClick={() => setDisplayMap(!displayMap)}
-                className="cartoon-btn mt-4"
+                className="cartoon-btn mt-4 flex items-center gap-2"
                 title="Klik untuk mengatur lokasi sesuai keinginan"
               >
-                ⚙️ Atur Lokasi
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 0V5m0 14v-3m-4-4H5m14 0h-3m-2.5-2.5L15.5 5m-7 7-3.5 3.5m12-3.5 3.5 3.5" />
+                </svg>
+                Atur Lokasi
               </button>
 
               <div className="grid grid-cols-2">

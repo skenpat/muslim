@@ -2,7 +2,7 @@
 
 Aplikasi web islami lengkap yang menyediakan:
 
-- 📖 Bacaan Al-Qur'an dengan kontrol ukuran huruf, tema, dan tajwid
+- 📖 Bacaan Al-Qur'an dengan kontrol ukuran huruf, tema, dan jarak baris
 - 🕋 Penanda arah kiblat (melalui redirect ke Google Qibla Finder)
 - 🕌 Jadwal sholat lokal dengan pengaturan lokasi & hitung mundur
 - 📅 Kalender hijriyah

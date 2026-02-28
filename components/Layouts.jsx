@@ -8,7 +8,7 @@ import { useReadingPreferences } from '../contexts/ReadingPreferences'
 export default function Layout({ children, name }) {
   const title = `Skemus - ${name}`
   const { theme } = useReadingPreferences()
-  const themeClass = theme ? `theme-${theme}` : ''
+  const themeClass = theme ? `theme-${theme} ${theme === 'dark' ? 'dark' : ''}` : ''
 
   return (
     <div className={`w-full max-w-4xl mx-auto px-4 ${themeClass}`}>

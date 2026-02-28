@@ -3,20 +3,19 @@ import { useEffect, useState } from 'react'
 import ErrorCard from '../../../components/ErrorCards'
 import Layout from '../../../components/Layouts'
 import Loading from '../../../components/Loading'
-import FontSizeController from '../../../components/quran/FontSizeController'
 import SurahSearchBar from '../../../components/quran/SurahSearchBar'
 import VerseCard from '../../../components/quran/VerseCard'
+import ReadingSettingsTab from '../../../components/quran/ReadingSettingsTab'
 import {
   surahEndpoint,
   useQuranSurah,
   useQuranSurahOption,
 } from '../../../utils/quran'
-import { TajweedLegend } from '../../../utils/tajweed'
-import { useReadingPreferences } from '../../../contexts/ReadingPreferences'
 
 export default function Surah({ data }) {
   const router = useRouter()
   const [searchResults, setSearchResults] = useState([])
+  const [showSearch, setShowSearch] = useState(false)
 
   const {
     currentSurah: surah,
@@ -25,6 +24,7 @@ export default function Surah({ data }) {
     getSurah,
     setSurah,
   } = useQuranSurah()
+  const [showSettings, setShowSettings] = useState(false)
 
   const {
     displayTafsir,
@@ -33,8 +33,6 @@ export default function Surah({ data }) {
     displayTranslate,
     setOption,
   } = useQuranSurahOption()
-
-  const { tajweedHighlight } = useReadingPreferences()
 
   const goToVerse = () => {
     const a = document.createElement('a')
@@ -68,11 +66,6 @@ export default function Surah({ data }) {
 
       {surah && (
         <>
-          <FontSizeController />
-          <SurahSearchBar verses={surah.verses} onSearch={setSearchResults} />
-          {/** show tajweed legend if enabled **/}
-          {tajweedHighlight && <TajweedLegend />}
-
           {/* Head */}
 
           <div className="text-center">
@@ -187,7 +180,48 @@ export default function Surah({ data }) {
               </svg>{' '}
               Latin
             </div>
+
+            {/* Search toggle */}
+            <div className="px-3 py-2">
+              <button
+                onClick={() => setShowSearch(!showSearch)}
+                className="px-3 py-2 rounded-lg bg-orange-100 dark:bg-gray-700 text-orange-700 dark:text-orange-300 hover:bg-orange-200 active:scale-95 transition-all flex items-center gap-1"
+                title="Tampilkan/ sembunyikan pencarian dalam surah"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-4.35-4.35M5 11a6 6 0 1112 0 6 6 0 01-12 0z" />
+                </svg>
+                Cari
+              </button>
+            </div>
+
+            {/* Reading settings toggle */}
+            <div className="px-3 py-2">
+              <button
+                onClick={() => setShowSettings(!showSettings)}
+                className="px-3 py-2 rounded-lg bg-orange-100 dark:bg-gray-700 text-orange-700 dark:text-orange-300 hover:bg-orange-200 active:scale-95 transition-all"
+                title="Pengaturan membaca"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 0V5m0 14v-3m-4-4H5m14 0h-3m-2.5-2.5L15.5 5m-7 7-3.5 3.5m12-3.5 3.5 3.5" />
+                </svg>
+              </button>
+            </div>
           </div>
+
+          {/* Search (toggle) - non-sticky to avoid covering content */}
+          {showSearch && (
+            <div className="mb-4">
+              <SurahSearchBar verses={surah.verses} onSearch={setSearchResults} isSticky={false} />
+            </div>
+          )}
+
+          {/* Reading settings toolbar */}
+          {showSettings && (
+            <div className="mb-4 sticky top-16 z-20 bg-white dark:bg-gray-900">
+              <ReadingSettingsTab />
+            </div>
+          )}
 
           {/* Navigation */}
           <div className="flex flex-wrap justify-between mb-5 mt-4">

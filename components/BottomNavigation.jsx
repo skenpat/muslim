@@ -95,15 +95,17 @@ export default function BottomNavigation() {
   }, [])
 
   return (
-    <div className="fixed bottom-0 inset-x-0 bg-gradient-to-r from-cartoon-orange-500 to-cartoon-orange-400 text-white grid grid-cols-4 text-center rounded-t-3xl shadow-cartoon-lg border-t-4 border-cartoon-orange-600">
+    <div className="fixed bottom-0 inset-x-0 bg-gradient-to-r from-orange-500 to-orange-400 text-white grid grid-cols-4 text-center shadow-lg border-t-2 border-orange-600 pb-safe pt-2">
       {navs.map(({ name, icon, url }, i) => (
         <Link
           href={url}
           key={i}
-          className={`pt-2 pb-1 transition-all duration-300 hover:scale-110 ${url === active ? 'bg-cartoon-orange-600 rounded-t-2xl border-t-4 border-white' : 'hover:bg-cartoon-orange-500/50'}`}
+          className={`py-2 px-1 transition-all duration-300 hover:bg-orange-600/50 active:bg-orange-700/70 rounded-t-lg hover:scale-105 active:scale-95 flex flex-col items-center justify-center ${
+            url === active ? 'bg-orange-600/60 border-t-2 border-white' : ''
+          }`}
         >
           {icon}
-          <span className="text-xs md:text-sm font-bold">{name}</span>
+          <span className="text-xs font-semibold mt-1">{name}</span>
         </Link>
       ))}
     </div>

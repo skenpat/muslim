@@ -6,12 +6,11 @@ export const useReadingPreferences = create(
     (set, get) => ({
       fontSize: 'lg',
       setFontSize: (size) => set({ fontSize: size }),
+      customFontSizePx: 28,
+      setCustomFontSizePx: (px) => set({ customFontSizePx: px }),
 
       theme: 'light',
       setTheme: (theme) => set({ theme }),
-
-      tajweedHighlight: true,
-      setTajweedHighlight: (value) => set({ tajweedHighlight: value }),
 
       lineHeight: 'relaxed',
       setLineHeight: (height) => set({ lineHeight: height }),

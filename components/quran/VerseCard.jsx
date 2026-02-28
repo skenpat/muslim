@@ -1,8 +1,7 @@
 import copy from 'copy-to-clipboard'
 import { useEffect, useState } from 'react'
 import { useReadingPreferences } from '../../contexts/ReadingPreferences'
-import { getTajweedHighlight } from '../../utils/tajweed'
-import { useQuranLastRead } from '../../utils/quran'
+import { useQuranLastRead } from '../../utils/quran' 
 import ClipboardCheckFill from '../icons/ClipboardCheckFill'
 import ClipboardIcon from '../icons/ClipboardIcon'
 import PinAngleIcon from '../icons/PinAngleIcon'
@@ -10,7 +9,7 @@ import PinFill from '../icons/PinFill'
 
 export default function VerseCard({ verse, options, surahNumber = null }) {
   const { lastRead, setLastRead } = useQuranLastRead()
-  const { fontSize, theme, lineHeight, bookmarks, toggleBookmark, tajweedHighlight } = useReadingPreferences()
+  const { fontSize, customFontSizePx, theme, lineHeight, bookmarks, toggleBookmark } = useReadingPreferences()
   const [displayMenu, setDisplayMenu] = useState(false)
   const [verseLink, setVerseLink] = useState(null)
   const [copied, setCopied] = useState(false)
@@ -48,8 +47,6 @@ export default function VerseCard({ verse, options, surahNumber = null }) {
   const arabicLineClass = lineHeightMap[lineHeight] || 'leading-relaxed'
   const arabicThemeClass = themeClasses[theme] || ''
 
-  const tajweedRules = tajweedHighlight ? getTajweedHighlight(text.arab) : []
-  const tajweedClass = tajweedRules.length ? `tajweed-${tajweedRules[0].rule}` : ''
 
   useEffect(() => {
     setVerseLink(
@@ -98,8 +95,10 @@ export default function VerseCard({ verse, options, surahNumber = null }) {
         </div>
         <div className="w-full">
           {/* Arab */}
-          <p className={`text-right font-serif ${arabicBaseClass} ${arabicLineClass} ${arabicThemeClass}`}>
-            <span className={`font-mushaf ${tajweedClass}`}>{text.arab}</span>
+          <p 
+            className={`text-right font-serif ${arabicBaseClass} ${arabicLineClass} ${arabicThemeClass}`}
+            {...(fontSize === 'custom' ? { style: { fontSize: `${customFontSizePx}px` } } : {})}>
+            <span className="font-mushaf">{text.arab}</span>
           </p>
 
           {/* Latin */}
@@ -163,7 +162,17 @@ export default function VerseCard({ verse, options, surahNumber = null }) {
               }`}
               onClick={() => toggleBookmark(surahNumber, number.inSurah)}
             >
-              <span>{isBookmarked ? '⭐' : '☆'}</span>
+              <span>
+                {isBookmarked ? (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 .587l3.668 7.431L24 9.748l-6 5.849L19.335 24 12 19.771 4.665 24 6 15.597 0 9.748l8.332-1.73L12 .587z" />
+                  </svg>
+                ) : (
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.952a1 1 0 00.95.69h4.166c.969 0 1.371 1.24.588 1.81l-3.372 2.455a1 1 0 00-.364 1.118l1.287 3.953c.3.921-.755 1.688-1.54 1.118l-3.372-2.455a1 1 0 00-1.176 0l-3.372 2.455c-.784.57-1.839-.197-1.54-1.118l1.287-3.953a1 1 0 00-.364-1.118L2.049 9.379c-.783-.57-.38-1.81.588-1.81h4.166a1 1 0 00.95-.69l1.286-3.952z" />
+                  </svg>
+                )}
+              </span>
               <span>{isBookmarked ? 'Bookmark' : 'Bookmark'}</span>
             </div>
           )}

@@ -93,9 +93,13 @@ export default function Tracker({ callback }) {
     <>
       <button
         ref={autoTrackButton}
-        className="cartoon-btn mt-3"
+        className="cartoon-btn mt-3 flex items-center gap-2"
       >
-        📍 Lacak Otomatis
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 22s8-4.5 8-10a8 8 0 10-16 0c0 5.5 8 10 8 10z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+        Lacak Otomatis
       </button>
 
       <div className="overflow-hidden my-4 rounded-2xl cartoon-card">
