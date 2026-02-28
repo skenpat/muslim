@@ -3,12 +3,15 @@ import Content from './Content'
 import Header from './Header'
 import Footer from './Footer'
 import BottomNavigation from './BottomNavigation'
+import { useReadingPreferences } from '../contexts/ReadingPreferences'
 
 export default function Layout({ children, name }) {
   const title = `Skemus - ${name}`
+  const { theme } = useReadingPreferences()
+  const themeClass = theme ? `theme-${theme}` : ''
 
   return (
-    <div className="w-full mx-auto">
+    <div className={`w-full mx-auto ${themeClass}`}>
       <Head>
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />

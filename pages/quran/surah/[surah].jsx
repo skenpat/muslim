@@ -1,17 +1,22 @@
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import ErrorCard from '../../../components/ErrorCards'
 import Layout from '../../../components/Layouts'
 import Loading from '../../../components/Loading'
+import FontSizeController from '../../../components/quran/FontSizeController'
+import SurahSearchBar from '../../../components/quran/SurahSearchBar'
 import VerseCard from '../../../components/quran/VerseCard'
 import {
   surahEndpoint,
   useQuranSurah,
   useQuranSurahOption,
 } from '../../../utils/quran'
+import { TajweedLegend } from '../../../utils/tajweed'
+import { useReadingPreferences } from '../../../contexts/ReadingPreferences'
 
 export default function Surah({ data }) {
   const router = useRouter()
+  const [searchResults, setSearchResults] = useState([])
 
   const {
     currentSurah: surah,
@@ -28,6 +33,8 @@ export default function Surah({ data }) {
     displayTranslate,
     setOption,
   } = useQuranSurahOption()
+
+  const { tajweedHighlight } = useReadingPreferences()
 
   const goToVerse = () => {
     const a = document.createElement('a')
@@ -61,6 +68,11 @@ export default function Surah({ data }) {
 
       {surah && (
         <>
+          <FontSizeController />
+          <SurahSearchBar verses={surah.verses} onSearch={setSearchResults} />
+          {/** show tajweed legend if enabled **/}
+          {tajweedHighlight && <TajweedLegend />}
+
           {/* Head */}
 
           <div className="text-center">
@@ -232,20 +244,27 @@ export default function Surah({ data }) {
           </div>
 
           {/* Verses */}
-          {surah.verses.map((verse, i) => (
-            <VerseCard
-              key={i}
-              options={{
-                displayTafsir,
-                displayLatin,
-                displayTranslate,
-                displayAudio,
-                showLastReadButton: true,
-                offsetOn: true,
-              }}
-              verse={verse}
-            />
-          ))}
+          {surah.verses
+            .filter((verse) =>
+              searchResults.length === 0
+                ? true
+                : searchResults.includes(verse.number.inSurah)
+            )
+            .map((verse, i) => (
+              <VerseCard
+                key={i}
+                options={{
+                  displayTafsir,
+                  displayLatin,
+                  displayTranslate,
+                  displayAudio,
+                  showLastReadButton: true,
+                  offsetOn: true,
+                }}
+                verse={verse}
+                surahNumber={surah.number}
+              />
+            ))}
 
           {/* Navigation */}
           <div className="flex justify-between mt-6">

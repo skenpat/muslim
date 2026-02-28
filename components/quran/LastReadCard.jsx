@@ -20,6 +20,7 @@ export default function LastReadCard() {
 
         <VerseCard
           verse={lastRead}
+          surahNumber={lastRead.link ? Number(lastRead.link.match(/surah\/(\d+)/)?.[1]) : null}
           options={{
             displayLatin: false,
             displayAudio: false,
